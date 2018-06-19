@@ -6,7 +6,7 @@ class BookSelfContents extends React.Component {
   render() {
     const { books, shelves, shelf, onShelfChange } = this.props
     return (
-      shelf.displayOnSelf && (
+      shelf.displayOnShelf && (
         <div className="list-books-content">
           <div>
             <div className="bookshelf">
@@ -14,14 +14,14 @@ class BookSelfContents extends React.Component {
               <div className="bookshelf-books">
                 <ol className="books-grid">
                   {
-                    books.map((book) => {
-                      if (book.shelf === shelf.value) {
-                        return (
-                          <li>
-                            <Book book={book} shelves={shelves} shelf={shelf} onShelfChange={onShelfChange} />
-                          </li>
-                        )
-                      }
+                    books.filter((book) => (
+                      book.shelf === shelf.value
+                    )).map((book) => {
+                      return (
+                        <li key={book.id}>
+                          <Book book={book} shelves={shelves} shelf={shelf} onShelfChange={onShelfChange} />
+                        </li>
+                      )
                     })
                   }
                 </ol>

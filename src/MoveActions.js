@@ -5,13 +5,13 @@ class MoveActions extends Component {
         const { options, currentState, book, onShelfChange } = this.props
         return (
             <div className="book-shelf-changer">
-                <select onChange={(event) => onShelfChange(book, event.target.value)}>
+                <select onChange={(event) => onShelfChange(book, event.target.value)} value={currentState}>
                     <option value="move" disabled>Move to...</option>
                     {
                         options.map((option) => (
-                            <option value={option.value}
-                                selected={currentState === option.value}
-                            >{option.displayText}</option>
+                            <option key={option.value} value={option.value}>
+                                {option.displayText}
+                            </option>
                         ))
                     }
                 </select>

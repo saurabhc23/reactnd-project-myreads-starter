@@ -9,22 +9,22 @@ const shelves = [
   {
     "value": "currentlyReading",
     "displayText": "Currently Reading",
-    "displayOnSelf": true
+    "displayOnShelf": true
   },
   {
     "value": "wantToRead",
     "displayText": "Want to Read",
-    "displayOnSelf": true
+    "displayOnShelf": true
   },
   {
     "value": "read",
     "displayText": "Read",
-    "displayOnSelf": true
+    "displayOnShelf": true
   },
   {
     "value": "none",
     "displayText": "None",
-    "displayOnSelf": false
+    "displayOnShelf": false
   }
 ]
 

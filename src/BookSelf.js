@@ -17,7 +17,7 @@ class BookSelf extends React.Component {
       <div className="list-books">
         <BookSelfHeader />{
           shelves.map((shelf) => (
-            <BookSelfContents books={books} shelves={shelves} shelf={shelf} onShelfChange={onShelfChange} />
+            <BookSelfContents key={shelf.value} books={books} shelves={shelves} shelf={shelf} onShelfChange={onShelfChange} />
           ))
         }
         <div className="open-search">

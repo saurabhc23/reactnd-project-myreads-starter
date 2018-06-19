@@ -4,9 +4,6 @@ import * as BooksAPI from './BooksAPI'
 import Book from './Book'
 import { Link } from 'react-router-dom'
 
-
-
-
 class BookSearch extends React.Component {
 
   state = {
@@ -21,7 +18,6 @@ class BookSearch extends React.Component {
           if (!books.error) {
             books.forEach((book) => {
               book.shelf = this.getshelf(book)
-              console.log('test')
             })
             this.setState(() => ({
               searchResults: books,
@@ -44,8 +40,8 @@ class BookSearch extends React.Component {
 
 
   getshelf = (book) => {
-    var shelf = '';
-    this.props.books.map((b) => {
+    var shelf = 'none';
+    this.props.books.forEach((b) => {
       if (b.id === book.id) {
         shelf = b.shelf
       }
@@ -55,7 +51,7 @@ class BookSearch extends React.Component {
 
 
   render() {
-    const { books, shelves, onShelfChange } = this.props
+    const { shelves, onShelfChange } = this.props
     return (
       <div className="search-books">
         <div className="search-books-bar">
@@ -69,7 +65,7 @@ class BookSearch extends React.Component {
             {
               this.state.searchResults.map((book) => {
                 return (
-                  <li>
+                  <li key={book.id}>
                     <Book book={book} shelves={shelves} onShelfChange={onShelfChange} />
                   </li>
                 )
