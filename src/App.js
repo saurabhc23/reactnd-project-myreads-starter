@@ -37,17 +37,15 @@ class BooksApp extends React.Component {
   }
 
   changeBookShelf = (selectedBook, newShelf) => {
-    this.state.books.forEach((book) => {
-      if (book.id === selectedBook.id) {
-        book.shelf = newShelf
-      }
-    })
     BooksAPI.update(selectedBook, newShelf)
-
-    this.setState(() => ({
-      books: this.state.books
-    })
-    )
+      .then(() => {
+        BooksAPI.getAll()
+          .then((books) => {
+            this.setState(() => ({
+              books
+            }))
+          })
+      })
   }
 
   componentDidMount() {

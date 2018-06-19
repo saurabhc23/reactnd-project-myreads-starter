@@ -15,7 +15,8 @@ class BookSelf extends React.Component {
     const { books, shelves, onShelfChange } = this.props
     return (
       <div className="list-books">
-        <BookSelfHeader />{
+        <BookSelfHeader />
+        {
           shelves.map((shelf) => (
             <BookSelfContents key={shelf.value} books={books} shelves={shelves} shelf={shelf} onShelfChange={onShelfChange} />
           ))

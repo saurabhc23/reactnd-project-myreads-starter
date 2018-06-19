@@ -1,23 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class MoveActions extends Component {
-    render() {
-        const { options, currentState, book, onShelfChange } = this.props
-        return (
-            <div className="book-shelf-changer">
-                <select onChange={(event) => onShelfChange(book, event.target.value)} value={currentState}>
+
+const MoveActions = (props) => (
+    <div className="book-shelf-changer">
+                <select onChange={(event) => props.onShelfChange(props.book, event.target.value)} value={props.currentState}>
                     <option value="move" disabled>Move to...</option>
                     {
-                        options.map((option) => (
+                        props.options.map((option) => (
                             <option key={option.value} value={option.value}>
                                 {option.displayText}
                             </option>
                         ))
                     }
                 </select>
-            </div>
-        )
-    }
-}
+     </div>
+  );
 
 export default MoveActions
