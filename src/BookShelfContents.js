@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css'
 import Book from './Book'
 
-class BookSelfContents extends React.Component {
+class BookShelfContents extends React.Component {
   render() {
     const { books, shelves, shelf, onShelfChange } = this.props
     return (
@@ -34,4 +34,4 @@ class BookSelfContents extends React.Component {
   }
 }
 
-export default BookSelfContents
+export default BookShelfContents

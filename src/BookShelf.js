@@ -1,13 +1,13 @@
 import React from 'react'
 import './App.css'
-import BookSelfHeader from './BookSelfHeader'
-import BookSelfContents from './BookSelfContents'
+import BookShelfHeader from './BookShelfHeader'
+import BookShelfContents from './BookShelfContents'
 import { Link } from 'react-router-dom'
 
 
 
 
-class BookSelf extends React.Component {
+class BookShelf extends React.Component {
 
 
 
@@ -15,10 +15,10 @@ class BookSelf extends React.Component {
     const { books, shelves, onShelfChange } = this.props
     return (
       <div className="list-books">
-        <BookSelfHeader />
+        <BookShelfHeader />
         {
           shelves.map((shelf) => (
-            <BookSelfContents key={shelf.value} books={books} shelves={shelves} shelf={shelf} onShelfChange={onShelfChange} />
+            <BookShelfContents key={shelf.value} books={books} shelves={shelves} shelf={shelf} onShelfChange={onShelfChange} />
           ))
         }
         <div className="open-search">
@@ -29,4 +29,4 @@ class BookSelf extends React.Component {
   }
 }
 
-export default BookSelf
+export default BookShelf
